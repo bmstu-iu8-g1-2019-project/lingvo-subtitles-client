@@ -1,4 +1,4 @@
-package com.example.lingvo.ui.dashboard
+package com.example.lingvo.ui.Tests
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.lingvo.R
 
-class DashboardFragment : Fragment() {
+class TestsFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var testsViewModel: TestsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(this, Observer {
+        testsViewModel =
+            ViewModelProviders.of(this).get(TestsViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_tests, container, false)
+        val textView: TextView = root.findViewById(R.id.text_search)
+        testsViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

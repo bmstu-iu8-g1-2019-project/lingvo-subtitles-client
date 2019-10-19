@@ -1,4 +1,4 @@
-package com.example.lingvo.ui.home
+package com.example.lingvo.ui.user
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.lingvo.R
 
-class HomeFragment : Fragment() {
+class UserFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var userViewModel: UserViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(this, Observer {
+        userViewModel =
+            ViewModelProviders.of(this).get(UserViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_user, container, false)
+        val textView: TextView = root.findViewById(R.id.text_user)
+        userViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root
