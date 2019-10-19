@@ -3,4 +3,7 @@
     <string name="title_tests">Tests</string>
     <string name="title_search">Search</string>
     <string name="title_user">User</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="text_credentials">Credentials</string>
 </resources>
