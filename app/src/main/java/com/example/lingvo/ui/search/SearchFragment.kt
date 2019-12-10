@@ -30,7 +30,9 @@ class SearchFragment : Fragment(), SearchListAdapter.SearchListContainer {
         }
 
         root.btnSearch.setOnClickListener {
-            onSearchClicked(root.edtSearch.text.toString())
+            val txt = root.edtSearch.text.toString()
+            if (txt.isNotEmpty())
+                onSearchClicked(txt)
         }
 
         return root

@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.lingvo.R
+import com.example.lingvo.ui.tests.TestsFragment
 import kotlinx.android.synthetic.main.fragment_user.view.*
 
 class UserFragment : Fragment() {
@@ -27,18 +28,21 @@ class UserFragment : Fragment() {
         root.button_login.setOnClickListener {
             val user = root.edit_username.text.toString()
             val pass = root.edit_password.text.toString()
-
-            Log.d("myLogs", "TestsFragment trying to LogIn")
             userViewModel.logIn(user, pass)
 
-            Log.d("myLogs", "TestsFragment ${userViewModel.isLogged}")
             if (userViewModel.isLogged) {
                 Toast.makeText(activity, "Success", Toast.LENGTH_LONG).show()
+                activity.let { it as UserFragmentContainer }
+                    .saveCredentials(user, pass)
             } else {
                 Toast.makeText(activity, "Failed", Toast.LENGTH_LONG).show()
             }
         }
 
         return root
+    }
+
+    interface UserFragmentContainer {
+        fun saveCredentials(user: String, password: String)
     }
 }

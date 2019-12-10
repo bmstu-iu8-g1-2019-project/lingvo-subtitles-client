@@ -12,10 +12,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.lingvo.ui.search.SearchFragment
 import com.example.lingvo.ui.tests.TestsFragment
+import com.example.lingvo.ui.user.UserFragment
 
 class MainActivity : AppCompatActivity(),
     SearchFragment.SearchFragmentContainer,
-    TestsFragment.TestsFragmentContainer {
+    TestsFragment.TestsFragmentContainer,
+    UserFragment.UserFragmentContainer {
 
     private lateinit var sPref: SharedPreferences
 
@@ -83,5 +85,12 @@ class MainActivity : AppCompatActivity(),
         }
 
         return null
+    }
+
+    override fun saveCredentials(user: String, password: String) {
+        val ed = sPref.edit()
+        ed.putString(LOGIN_ID, user)
+        ed.putString(PASSWORD_ID, password)
+        ed.apply()
     }
 }
