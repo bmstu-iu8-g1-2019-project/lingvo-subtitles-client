@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -49,8 +47,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
 
-    implementation 'com.github.kittinunf.fuel:fuel-android:2.2.1'
-    implementation 'com.github.kittinunf.fuel:fuel-json:2.2.1'
+    implementation "com.github.kittinunf.fuel:fuel-android:$fuel_version"
+    implementation "com.github.kittinunf.fuel:fuel-json:$fuel_version"
+    implementation "com.google.code.gson:gson:$gson_version"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
