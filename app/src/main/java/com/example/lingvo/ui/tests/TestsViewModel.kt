@@ -3,6 +3,8 @@ package com.example.lingvo.ui.tests
 import androidx.lifecycle.ViewModel
 import com.example.lingvo.models.Card
 import com.example.lingvo.providers.WordsProvider
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 
 class TestsViewModel : ViewModel() {
     var items: List<Card> = emptyList()
@@ -17,7 +19,7 @@ class TestsViewModel : ViewModel() {
         mWordsProvider.logIn(user, password)
     }
 
-    fun load(IDSubtitleFile: String) {
+    fun load(IDSubtitleFile: String) = runBlocking(Dispatchers.IO) {
         items = mWordsProvider.getTest(IDSubtitleFile)
     }
 }

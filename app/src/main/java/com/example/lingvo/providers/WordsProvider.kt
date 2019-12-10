@@ -1,6 +1,5 @@
 package com.example.lingvo.providers
 
-import android.util.Log
 import com.example.lingvo.models.Card
 import com.example.lingvo.models.SearchEntry
 import com.github.kittinunf.fuel.Fuel
@@ -12,7 +11,7 @@ import org.json.JSONArray
 import java.lang.reflect.Type
 
 
-class WordsProvider() {
+class WordsProvider {
     private val url = "http://10.0.2.2:5000"
 
     private var mUser: String? = null
@@ -31,23 +30,12 @@ class WordsProvider() {
             .responseJson()
             .third.get().obj()["id"].toString()
 
-        if (result != "200") {
-            return false
-        }
-
-        mUser = user
-        mPassword = password
-        return true
+        return result == "200"
     }
 
     fun logIn(user: String, password: String) {
         mUser = user
         mPassword = password
-    }
-
-    fun logOut() {
-        mUser = null
-        mPassword = null
     }
 
     fun isLoggedIn(): Boolean {
