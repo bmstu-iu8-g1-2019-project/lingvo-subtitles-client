@@ -11,15 +11,27 @@ import org.json.JSONArray
 import java.lang.reflect.Type
 
 
-class WordsProvider(private val user: String, private val password: String) {
-
+class WordsProvider() {
     private val url = "http://10.0.2.2:5000"
+
+    private var mUser: String? = null
+    private var mPassword: String? = null
 
     private val searchEntryCollectionType: Type = object : TypeToken<List<SearchEntry>>() {
     }.type
 
     private val cardCollectionType: Type = object : TypeToken<List<Card>>() {
     }.type
+
+    fun logIn(user: String, password: String) {
+        mUser = user
+        mPassword = password
+    }
+
+    fun logOut() {
+        mUser = null
+        mPassword = null
+    }
 
     fun search(text: String): List<SearchEntry> {
         val jsonArray = Fuel.post("$url/search", listOf("query" to text))
@@ -29,9 +41,13 @@ class WordsProvider(private val user: String, private val password: String) {
     }
 
     fun getTest(entry: String): List<Card> {
+        if (mUser == null || mPassword == null) {
+            return emptyList()
+        }
+
         val jsonArray = Fuel.post("$url/parse", listOf("query" to entry))
             .authentication()
-            .basic(user, password)
+            .basic(mUser!!, mPassword!!)
             .responseJson()
             .third.get().obj()["cards"]
             .let { it as JSONArray }
