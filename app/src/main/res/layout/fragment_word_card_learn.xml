@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="370dp"
     android:layout_height="130dp"
-    tools:context=".ui.Tests.WordCardLearn.WordCardLearnFragment">
+    tools:context=".ui.tests.word_card_learn.WordCardLearnFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

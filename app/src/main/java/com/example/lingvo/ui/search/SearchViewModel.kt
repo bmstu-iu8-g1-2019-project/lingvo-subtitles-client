@@ -1,4 +1,4 @@
-package com.example.lingvo.ui.Search
+package com.example.lingvo.ui.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

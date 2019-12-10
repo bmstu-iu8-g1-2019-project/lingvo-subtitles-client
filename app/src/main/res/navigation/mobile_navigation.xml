@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_tests"
-        android:name="com.example.lingvo.ui.Tests.TestsFragment"
+        android:name="com.example.lingvo.ui.tests.TestsFragment"
         android:label="@string/title_tests"
         tools:layout="@layout/fragment_tests" />
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.example.lingvo.ui.Search.SearchFragment"
+        android:name="com.example.lingvo.ui.search.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_user"
-        android:name="com.example.lingvo.ui.User.UserFragment"
+        android:name="com.example.lingvo.ui.user.UserFragment"
         android:label="@string/title_user"
         tools:layout="@layout/fragment_user" />
 </navigation>

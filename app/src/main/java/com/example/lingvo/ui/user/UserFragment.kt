@@ -1,4 +1,4 @@
-package com.example.lingvo.ui.User
+package com.example.lingvo.ui.user
 
 import android.os.Bundle
 import android.view.LayoutInflater

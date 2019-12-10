@@ -11,7 +11,7 @@ import org.json.JSONArray
 import java.lang.reflect.Type
 
 
-class WordsProvider {
+class WordsProvider(private val user: String, private val password: String) {
 
     private val url = "http://10.0.2.2:5000"
 
@@ -23,8 +23,6 @@ class WordsProvider {
 
     fun search(text: String): List<SearchEntry> {
         val jsonArray = Fuel.post("$url/search", listOf("query" to text))
-            .authentication()
-            .basic("SampleUser", "SamplePassword")
             .responseJson()
             .third.get().array().toString()
         return Gson().fromJson<List<SearchEntry>>(jsonArray, searchEntryCollectionType)
@@ -33,7 +31,7 @@ class WordsProvider {
     fun getTest(entry: String): List<Card> {
         val jsonArray = Fuel.post("$url/parse", listOf("query" to entry))
             .authentication()
-            .basic("SampleUser", "SamplePassword")
+            .basic(user, password)
             .responseJson()
             .third.get().obj()["cards"]
             .let { it as JSONArray }

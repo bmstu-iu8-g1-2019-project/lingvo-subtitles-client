@@ -11,14 +11,14 @@ import org.junit.runner.RunWith
 class ExampleInstrumentedTest {
     @Test
     fun getTest() {
-        val data = WordsProvider().getTest("Game of Thrones S1E1")
+        val data = WordsProvider("SampleUser", "SamplePassword").getTest("Game of Thrones S1E1")
         Assert.assertFalse(data.isEmpty())
         Log.d("myLogs", data.toString())
     }
 
     @Test
     fun search() {
-        val data = WordsProvider().search("Game of Thrones")
+        val data = WordsProvider("SampleUser", "SamplePassword").search("Game of Thrones")
         Assert.assertFalse(data.isEmpty())
         Log.d("myLogs", data.toString())
     }

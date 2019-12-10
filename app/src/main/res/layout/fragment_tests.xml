@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.example.lingvo.ui.Tests.WordCardLearn.WordCardLearnFragment"
+        android:name="com.example.lingvo.ui.tests.word_card_learn.WordCardLearnFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

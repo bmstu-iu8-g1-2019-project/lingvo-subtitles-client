@@ -1,4 +1,4 @@
-package com.example.lingvo.ui.Tests.WordCardLearn
+package com.example.lingvo.ui.tests.word_card_learn
 
 import androidx.lifecycle.ViewModel
 

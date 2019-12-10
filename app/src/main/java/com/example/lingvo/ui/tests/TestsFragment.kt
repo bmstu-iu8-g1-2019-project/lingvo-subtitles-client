@@ -1,4 +1,4 @@
-package com.example.lingvo.ui.Search
+package com.example.lingvo.ui.tests
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.lingvo.R
 
-class SearchFragment : Fragment() {
+class TestsFragment : Fragment() {
 
-    private lateinit var searchViewModel: SearchViewModel
+    private lateinit var testsViewModel: TestsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        searchViewModel =
-            ViewModelProviders.of(this).get(SearchViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_search, container, false)
+        testsViewModel =
+            ViewModelProviders.of(this).get(TestsViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_tests, container, false)
         val textView: TextView = root.findViewById(R.id.text_search)
-        searchViewModel.text.observe(this, Observer {
+        testsViewModel.text.observe(this, Observer {
             textView.text = it
         })
         return root

@@ -1,6 +1,5 @@
-package com.example.lingvo.ui.Tests
+package com.example.lingvo.ui.tests
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
