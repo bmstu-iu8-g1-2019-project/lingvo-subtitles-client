@@ -1,13 +1,23 @@
 package com.example.lingvo.ui.tests
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.lingvo.models.Card
+import com.example.lingvo.providers.WordsProvider
 
 class TestsViewModel : ViewModel() {
+    var items: List<Card> = emptyList()
+        private set
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is tests Fragment"
+    var currentIDSubtitleFile: String? = null
+    var isLogged = false
+
+    private val mWordsProvider = WordsProvider()
+
+    fun logIn(user: String, password: String) {
+        mWordsProvider.logIn(user, password)
     }
-    val text: LiveData<String> = _text
+
+    fun load(IDSubtitleFile: String) {
+        items = mWordsProvider.getTest(IDSubtitleFile)
+    }
 }

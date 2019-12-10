@@ -12,9 +12,10 @@ import com.example.lingvo.R
 import kotlinx.android.synthetic.main.fragment_search.view.*
 
 class SearchFragment : Fragment(), SearchListAdapter.SearchListContainer {
-    private lateinit var searchViewModel: SearchViewModel
 
+    private lateinit var searchViewModel: SearchViewModel
     private lateinit var recyclerView: RecyclerView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -1,5 +1,6 @@
 package com.example.lingvo.providers
 
+import android.util.Log
 import com.example.lingvo.models.Card
 import com.example.lingvo.models.SearchEntry
 import com.github.kittinunf.fuel.Fuel
@@ -23,6 +24,22 @@ class WordsProvider() {
     private val cardCollectionType: Type = object : TypeToken<List<Card>>() {
     }.type
 
+    fun checkUser(user: String, password: String): Boolean {
+        val result = Fuel.get("$url/login")
+            .authentication()
+            .basic(user, password)
+            .responseJson()
+            .third.get().obj()["id"].toString()
+
+        if (result != "200") {
+            return false
+        }
+
+        mUser = user
+        mPassword = password
+        return true
+    }
+
     fun logIn(user: String, password: String) {
         mUser = user
         mPassword = password
@@ -31,6 +48,10 @@ class WordsProvider() {
     fun logOut() {
         mUser = null
         mPassword = null
+    }
+
+    fun isLoggedIn(): Boolean {
+        return mUser != null && mPassword != null
     }
 
     fun search(text: String): List<SearchEntry> {

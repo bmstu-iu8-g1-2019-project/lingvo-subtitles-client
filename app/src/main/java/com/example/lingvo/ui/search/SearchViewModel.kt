@@ -11,9 +11,6 @@ class SearchViewModel : ViewModel() {
     private val mWordsProvider = WordsProvider()
 
     fun search(text: String) {
-        items = listOf(
-            SearchEntry("asd", "sad", "1952846466",0.5f, "sad", "sad"),
-            SearchEntry("asd", "sad", "1952846466",0.5f, "sad", "sad")
-        )
+        items = mWordsProvider.search(text)
     }
 }

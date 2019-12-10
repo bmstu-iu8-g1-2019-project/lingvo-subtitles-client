@@ -24,4 +24,11 @@ class ExampleInstrumentedTest {
         Assert.assertFalse(data.isEmpty())
         Log.d("myLogs", data.toString())
     }
+
+    @Test
+    fun login() {
+        Assert.assertTrue(WordsProvider().checkUser("SampleUser", "SamplePassword"))
+        Assert.assertFalse(WordsProvider().checkUser("NotSampleUser", "SamplePassword"))
+        Assert.assertFalse(WordsProvider().checkUser("NotSampleUser", "NotSamplePassword"))
+    }
 }
