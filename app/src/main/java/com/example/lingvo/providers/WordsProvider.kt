@@ -12,7 +12,8 @@ import java.lang.reflect.Type
 
 
 class WordsProvider {
-    private val url = "http://10.0.2.2:5000"
+    // private val url = "http://10.0.2.2:5000"
+    private val url = "http://194.87.92.173:5000"
 
     private var mUser: String? = null
     private var mPassword: String? = null

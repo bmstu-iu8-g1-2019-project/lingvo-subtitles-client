@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lingvo.R
 import kotlinx.android.synthetic.main.fragment_search.view.*
+import java.lang.Exception
 
 class SearchFragment : Fragment(), SearchListAdapter.SearchListContainer {
 
@@ -43,7 +44,13 @@ class SearchFragment : Fragment(), SearchListAdapter.SearchListContainer {
     }
 
     private fun onSearchClicked(text: String) {
-        searchViewModel.search(text)
+        try {
+            searchViewModel.search(text)
+        }
+        catch (e: Exception) {
+            return
+        }
+
         recyclerView.adapter
             .let { it as SearchListAdapter }
             .onUpdateData(searchViewModel.items)
